@@ -506,4 +506,227 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 }); 
 
-
+// ===== ENQUIRY FORM VALIDATION =====
+document.addEventListener("DOMContentLoaded", function() {
+    
+    // Get form
+    const form = document.getElementById("");
+    
+    // Get all inputs
+    const fullName = document.getElementById("fullName");
+    const email = document.getElementById("email");
+    const phone = document.getElementById("phone");
+    const subject = document.getElementById("subject");
+    const message = document.getElementById("message");
+    
+    // Get error displays
+    const nameError = document.getElementById("nameError");
+    const emailError = document.getElementById("emailError");
+    const phoneError = document.getElementById("phoneError");
+    const subjectError = document.getElementById("subjectError");
+    const messageError = document.getElementById("messageError");
+    
+    // ===== VALIDATION FUNCTIONS =====
+    
+    function validateName() {
+        const value = fullName.value.trim();
+        if (value === "") {
+            nameError.textContent = "Please enter your full name";
+            nameError.style.display = "block";
+            fullName.classList.add("error");
+            fullName.classList.remove("success");
+            return false;
+        } else {
+            nameError.style.display = "none";
+            fullName.classList.remove("error");
+            fullName.classList.add("success");
+            return true;
+        }
+    }
+    
+    function validateEmail() {
+        const value = email.value.trim();
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        
+        if (value === "") {
+            emailError.textContent = "Please enter your email address";
+            emailError.style.display = "block";
+            email.classList.add("error");
+            email.classList.remove("success");
+            return false;
+        } else if (!emailPattern.test(value)) {
+            emailError.textContent = "Please enter a valid email (e.g., name@domain.com)";
+            emailError.style.display = "block";
+            email.classList.add("error");
+            email.classList.remove("success");
+            return false;
+        } else {
+            emailError.style.display = "none";
+            email.classList.remove("error");
+            email.classList.add("success");
+            return true;
+        }
+    }
+    
+    function validatePhone() {
+        const value = phone.value.trim();
+        const phonePattern = /^[\d\s\+\-\(\)]{10,15}$/;
+        
+        if (value === "") {
+            phoneError.textContent = "Please enter your phone number";
+            phoneError.style.display = "block";
+            phone.classList.add("error");
+            phone.classList.remove("success");
+            return false;
+        } else if (!phonePattern.test(value)) {
+            phoneError.textContent = "Please enter a valid phone number (10-15 digits)";
+            phoneError.style.display = "block";
+            phone.classList.add("error");
+            phone.classList.remove("success");
+            return false;
+        } else {
+            phoneError.style.display = "none";
+            phone.classList.remove("error");
+            phone.classList.add("success");
+            return true;
+        }
+    }
+    
+    function validateSubject() {
+        const value = subject.value.trim();
+        if (value === "") {
+            subjectError.textContent = "Please enter a subject";
+            subjectError.style.display = "block";
+            subject.classList.add("error");
+            subject.classList.remove("success");
+            return false;
+        } else {
+            subjectError.style.display = "none";
+            subject.classList.remove("error");
+            subject.classList.add("success");
+            return true;
+        }
+    }
+    
+    function validateMessage() {
+        const value = message.value.trim();
+        if (value === "") {
+            messageError.textContent = "Please enter your message";
+            messageError.style.display = "block";
+            message.classList.add("error");
+            message.classList.remove("success");
+            return false;
+        } else {
+            messageError.style.display = "none";
+            message.classList.remove("error");
+            message.classList.add("success");
+            return true;
+        }
+    }
+    
+    // ===== REAL-TIME VALIDATION (on input) =====
+    fullName.addEventListener("input", validateName);
+    email.addEventListener("input", validateEmail);
+    phone.addEventListener("input", validatePhone);
+    subject.addEventListener("input", validateSubject);
+    message.addEventListener("input", validateMessage);
+    
+    // ===== REAL-TIME VALIDATION (on blur - when leaving field) =====
+    fullName.addEventListener("blur", validateName);
+    email.addEventListener("blur", validateEmail);
+    phone.addEventListener("blur", validatePhone);
+    subject.addEventListener("blur", validateSubject);
+    message.addEventListener("blur", validateMessage);
+    
+    // ===== FORM SUBMISSION =====
+    form.addEventListener("submit", function(event) {
+        event.preventDefault();
+        
+        // Remove old messages
+        document.querySelectorAll(".form-message").forEach(function(msg) {
+            msg.remove();
+        });
+        
+        // Validate all fields
+        const isNameValid = validateName();
+        const isEmailValid = validateEmail();
+        const isPhoneValid = validatePhone();
+        const isSubjectValid = validateSubject();
+        const isMessageValid = validateMessage();
+        
+        // Check if all valid
+        if (isNameValid && isEmailValid && isPhoneValid && isSubjectValid && isMessageValid) {
+            // SUCCESS - Form is complete
+            showSuccessMessage();
+            
+            // Reset form
+            form.reset();
+            
+            // Remove success classes
+            document.querySelectorAll(".success").forEach(function(input) {
+                input.classList.remove("success");
+            });
+            
+            console.log("Form submitted successfully!");
+        } else {
+            // ERROR - Form is incomplete
+            showErrorMessage("Please fill in all required fields correctly");
+            
+            // Scroll to first error
+            const firstError = document.querySelector(".error");
+            if (firstError) {
+                firstError.focus();
+                firstError.scrollIntoView({ behavior: "smooth", block: "center" });
+            }
+        }
+    });
+    
+    // ===== SHOW SUCCESS MESSAGE =====
+    function showSuccessMessage() {
+        const messageDiv = document.createElement("div");
+        messageDiv.className = "form-message success-message";
+        messageDiv.innerHTML = `
+            ✅ <span><strong>Success!</strong> Your enquiry has been submitted successfully! We'll get back to you soon.</span>
+        `;
+        
+        // Insert at top of form
+        form.insertBefore(messageDiv, form.firstChild);
+        
+        // Auto remove after 5 seconds
+        setTimeout(function() {
+            if (messageDiv) {
+                messageDiv.style.opacity = "0";
+                messageDiv.style.transition = "opacity 0.3s";
+                setTimeout(function() {
+                    messageDiv.remove();
+                }, 300);
+            }
+        }, 5000);
+    }
+    
+    // ===== SHOW ERROR MESSAGE =====
+    function showErrorMessage(message) {
+        const messageDiv = document.createElement("div");
+        messageDiv.className = "form-message error-message-box";
+        messageDiv.innerHTML = `
+            ❌ <span><strong>Error!</strong> ${message}</span>
+        `;
+        
+        // Insert at top of form
+        form.insertBefore(messageDiv, form.firstChild);
+        
+        // Auto remove after 4 seconds
+        setTimeout(function() {
+            if (messageDiv) {
+                messageDiv.style.opacity = "0";
+                messageDiv.style.transition = "opacity 0.3s";
+                setTimeout(function() {
+                    messageDiv.remove();
+                }, 300);
+            }
+        }, 4000);
+    }
+    
+    console.log("✅ Enquiry form validation loaded!");
+});
+    
