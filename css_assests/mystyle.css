@@ -1,0 +1,419 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== BODY ===== */
+body{
+    font-family: Arial, sans-serif;
+    background-color: #faf7f2;
+    color: #4a4a4a;
+    line-height: 1.6;
+}
+
+/* ===== HEADER ===== */
+header{
+    background-color: #a8c3a0;
+    color: white;
+    padding: 20px;
+    text-align: center;
+
+}
+
+/* ===== NAVIGATION ===== */
+nav{
+    background-color: #d8bfa9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+}
+
+.logo img{
+    width: 120px;
+    height: auto;
+}
+
+nav a{
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav a:hover{
+    color: #4a4a4a;
+
+}
+
+/* ===== MAIN CONTENT ===== */
+main{
+    padding: 30px;
+}
+
+/* ===== HERO SECTION ===== */
+.hero{
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #f3ece4;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    object-fit: cover;
+
+}
+
+.hero h1{
+    font-size: 3rem;
+    color: #6e8b74;
+}
+
+.hero p{
+    margin-top: 15px;
+    font-size: 1.1rem;
+}
+.featured-products{
+    background-color: white;
+    padding: 30px;
+    border-radius: 20px;
+    margin-top: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0,0.1);
+}
+
+.featured-products h2{
+    color: #6e8b74;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th{
+    background-color: #a8c3a0;
+    color: white;
+    padding: 15px;
+}
+
+table td{
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+table tr:hover{
+    background-color: #f4f9f4;
+}
+
+/* ===== PRODUCTS ===== */
+.products{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.product-card{
+    background-color:#fff8f2;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 6px 15px rgba(0, 0, 0,0.1);
+    transition: 0.4s;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.product-card:hover{
+    transform: scale(1.03);
+}
+
+.product-card img{
+    width: 30%;
+    height: 250px;
+    border-radius: 15px;
+    
+}
+
+.product-card h3{
+    margin-top: 15px;
+    color: #8a6f5a;
+    font-size: 22px;
+}
+/* ===== ABOUT PAGE =====*/
+.about{
+    background-color: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0,0.1);
+}
+
+/* ===== SKINCARE ROUTINE =====*/
+.routine-intro{
+   background-color: white;
+   padding: 35px;
+   width: 100%;
+   border-radius: 20px;
+   margin-bottom: 30px;
+   box-shadow: 0 4px 10px rgba(0, 0, 0,0.1);
+}
+
+.routine-intro h1{
+   color: #6e8b74;
+   margin-bottom: 15px;
+}
+
+.routine-steps{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.step-card{
+    background-color: #fff8f2;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0,0.1);
+    transition: 0.3s;
+}
+
+.step-card:hover{
+    transform: translateY(-5px);
+}
+
+.step-card h2{
+    color: #8a6f5a;
+    margin-bottom: 10px;
+}
+
+/* ===== SKIN TYPE GUIDE ===== */
+.skin-guide{
+    margin-top: 40px;
+}
+
+.skin-container{
+    display: flex;
+   flex-wrap: wrap;
+    gap: 150px;
+}
+
+.skin-card{
+    flex: 1;
+    min-width: 220px;
+    background-color: #f4f9f4;
+    padding: 25px;
+    border-radius: 15px;
+    border-left: 6px solid #A8C3A0;
+    transition: 0.3s;
+}
+.skin-card img{
+    width: 500;
+    height: 220px;
+    object-fit: contain;
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+
+.skin-card:hover{
+    background-color: #e8f1e8;
+}
+.skin-card h2{
+    color: #6e8b74;
+    margin-bottom: 10px;
+}
+
+/* ===== CONTACT US =====*/
+.contact-page{
+    background-color: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0,0.1);
+    margin-top: 30px;
+}
+
+.contact-page h1{
+    color: #6e8b74;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.contact-details{
+   margin-bottom: 30px;
+}
+
+.contact-details p{
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.contact-page form{
+    margin-top: 20px;
+}
+
+/* ===== ENQUIRIES ===== */
+.enquiries-container{
+    display: block;
+    margin-top: 30px;
+}
+
+.contact-info{
+    background-color: white;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0,0.1);
+    margin-bottom: 30px;
+}
+.contact-info h2{
+    color: #6e8b74;
+    margin-bottom: 15px;
+}
+.contact-info p{
+    margin-bottom: 10px;
+}
+.contact-form{
+    background-color: white;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0,0.1);
+}
+
+/* ===== FAQ SECTION ===== */
+.faq-section{
+    background-color: white;
+    padding: 40px;
+    border-radius: 20px;
+    margin-top: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0,0.1);
+}
+
+.faq-section h1{
+    text-align: center;
+    color: #c38d94;
+    margin-bottom: 25px;
+}
+
+/* ===== FAQ BOX ===== */
+.faq{
+    margin-bottom: 15px;
+}
+
+/* ===== QUESTION BUTTON ===== */
+.faq-question{
+    width: 100%;
+    background-color: #d8a7b1;
+    color: white;
+    border: none;
+    padding: 18px;
+    text-align: left;
+    font-size: 16px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.faq-question:hover{
+    background-color: #c38d94;
+}
+
+/* Answer */
+.fag-answer{
+    display: none;
+    background-color: #fff8f5;
+    padding: 15px;
+    border-radius: 12px;
+    margin-top: 5px;
+}
+/* ===== FOOTER ===== */
+footer{
+    background-color: #A8C3A0;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+/* ===== ADD TO CART BUTTON ===== */
+.cart.btn{
+    background-color: #d8a7b1;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    margin-top: 15px;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.cart.btn:hover{
+    background-color: #c38d94;
+    transform: scale(1.05);
+}
+
+/* ===== SOCIAL MEDIA LINKS ===== */
+.social-links{
+    margin: 20px;
+}
+
+.social-links a{
+    display: inline-block;
+    background-color: #d8a7b1;
+    color: white;
+    text-decoration: none;
+    padding: 12px 18px;
+    margin-right: 10px;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.social-links a:hover{
+    background-color: #c38d94;
+    transform: translateY(-3px);
+}
+
+/* ===== SearchBar ===== */
+.search-container{ 
+    text-align: center;
+    margin: 20px;
+}
+
+#searchInput{
+    width: 60%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+/* TABLETS */
+@media(max-width: 768px){
+    .hero h1{
+        font-size: 2rem;
+    }
+    nav{
+        flex-direction: column;
+        align-items: center;
+    }
+    .routine{
+        flex-direction: column;
+    }
+}
+
+/* MOBILE */
+@media( max-width: 480px){
+    body{
+        font-size: 14px;
+    }
+    .hero{
+        padding: 40px 15px;
+    }
+    .hero h1{
+        font-size: 1.8rem;
+    }
+    main{
+        padding: 15px;
+    }
+
+}
+    
+

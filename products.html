@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skin Syntax | Products</title>
+    <link rel="stylesheet" href="css_assests/mystyle.css">
+
+    <!-- Meta descriptions and keywords implemented by Google SEO guidelines (Google, 2023) -->
+
+    <meta name="description" content=" Premium skincare products for healthy glowing skin.">
+    <meta name="keywords" content="skincare, skincare products, vitiligo skincare, albinism skincare, beauty">
+
+    <!-- jQuery library and files that load lightbox, -->
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- External javascript saved in js_assets folder -->
+    <script src="js_assets/myjavascript.js"></script>
+
+    <!-- Lightbox2 CSS - Provides the styling for the Lightbox, Image positioning, Next/Previous 
+    buttons, Close button (×), Captions. Without this file, the Lightbox may still open but will be unstyled.-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet" />
+
+    <!--Lightbox2 js function (was build using jQuery, to function it needs jQuery to be loaded 
+    first). Contains the Lightbox functionality, Opening images in a popup, Closing images,
+    Gallery navigation, Image animations-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+
+</head>
+<body>
+     <header>
+        
+        <img src="images/Skin Syntax (logo).png" alt="">
+         <!--Navigation Bar starts here-->
+        <nav><center>
+            <ul>
+                <li style="display: inline;"><a href="index.html">Home</a></li>
+                <li style="display: inline;"><a href="about.html">About Us</a></li>
+                <li style="display: inline;"><a href="products.html">Products</a></li>
+                <li style="display: inline;"><a href="skintypeguide.html">Skin Type Guide</a></li>
+                <li style="display: inline;"><a href="skincare_routine.html">Skincare routine</a></li>
+                <li style="display: inline;"><a href="enquiries.html">Enquiries</a></li>
+                <li style="display: inline;"><a href="contact_us.html">Contact Us</a></li>
+            </ul>
+        </nav></center>
+         <!--Navigation Bar ends here-->
+    </header>
+    <div class="search-container">
+    <center><input type="text" id="searchBar" placeholder="Search products..."><button onclick="searchProducts()"> Search</button></center> 
+    </div>
+    <main>
+      
+    <section class="products">
+        <div class="product-card img">
+           
+        <center><img src="images/aesthetic_skincareflatlay.png" width="400" alt=""></center>
+         <!--introduction starts here-->
+        <h1> Discover Your Glow</h1>
+        <p>
+            Welcome to our curated skincare collection designed to support healthy, glowing skin
+            from head to toe. Each product is carefully selected to match different skin needs 
+            and routines, helping you build a complete self-care system.
+        </p>
+        </div>
+    </section>   
+         <!--introduction ends here-->
+    <div class="product-card">
+        <hr width="5000">
+        <h3> Cart Items: <span id="cartCount">0</span></h3>
+         <!--Showcasing of the products starts here-->
+        <h2>FACE CARE</h2>
+        <h4>Face Care Combo Set</h4>
+        <img src="images/facecare_set.png" width="400" alt="Skin Syntax Face Care Combo Set">
+        <p>
+            PRICE:R350 
+            <br>
+            <b>Includes:</b>
+            <ul>
+                <li>Cleanser</li>
+                <li>Toner</li>
+                <li>Serum</li>
+            </ul>
+            <b>Description:</b><br>A complete daily routine designed to deeply cleanse, balance and nourish the skin.
+        </p>
+        <button class="cart-btn">
+                Add to Cart
+            </button>
+        </div> 
+    <div class="product-card">
+        <h2>BODY CARE</h2>
+        <h4>Body Care Bundle</h4>
+        <img src="images/bodycare_set.png" width="400" alt="Skin Syntax Body Care Set">
+        <p>
+            PRICE: R400
+            <br>
+            <b>Includes:</b>
+            <ul>
+                <li>Body wash</li>
+                <li>Body lotion</li>
+                <li>Body oil</li>
+            </ul>
+            <b>Description:</b><br> A full hydration system that cleanses, softens and locks in moisture for smooth, healthy skin.
+        </p>
+        <button class="cart-btn">
+                Add to Cart
+            </button>
+    </div>
+    <div class="product-card">
+        <h2>EXFOLIATION</h2>
+        <h4>Exfoliation Kit</h4>
+        <img src="images/exfoliation_set.png" width="400" alt="Skin Syntax Exfoliation Set">
+        <p>
+            PRICE: R320
+            <br>
+            <b>Includes:</b>
+            <ul>
+                <li>Face scrub</li>
+                <li>Body scrub</li>
+                <li>Exfoliating gloves & brushes</li>
+            </ul>
+            <b>Description:</b><br> Removes dead skin cells, improves skin texture and promotes smooth, radiant skin.
+        </p>
+        <button class="cart-btn">
+                Add to Cart
+            </button>
+    </div>
+    <div class="product-card">
+        <h2>FOOT CARE</h2>
+        <h4>Foot Care Recovery Kit</h4>
+        <img src="images/footcare_set.png" width="400" alt="Skin Syntax FootCare Set">
+        <p>
+            PRICE: R300
+              <br>
+            <b>Includes:</b>
+            <ul>
+                <li>Foot scrub</li>
+                <li>Foot mask</li>
+                <li>Heel repair cream</li>
+            </ul>
+            <b>Description:</b><br>Designed to restore softness, remove rough skin and heal cracked heels for healthy feet.
+        </p>
+        <button class="cart-btn">
+                Add to Cart
+            </button>
+        </div>
+        <div class="product-card">
+            <h2>VITILIGO SKINCARE SET</h2>
+            <img src="images/vitiligo_skincareset.png" width="400" alt=" Vitiligo SkinCare Set">
+            <p>
+                PRICE: R550
+                  <br>
+            <b>Includes:</b>
+                <ul>
+                <li>Gentle Cleanser</li>
+                <li>Calming Toner</li>
+                <li>Brightening Serum</li>
+                <li>Restore and Repair cream</li>
+                <li>Sun Protect SPF 50+</li>
+            </ul>
+            </p>
+            <button class="cart-btn">
+                Add to Cart
+            </button>
+        </div>
+        <div class="product-card">
+            <h2>ALBINISM SKINCARE SET</h2>
+            <img src="images/albino-skincareset.png" width="400" alt=" Albinism Skincare Set">
+            <p>
+                PRICE: R550
+                  <br>
+            <b>Includes:</b>
+                <ul>
+                <li>Gentle Creamy Cleanser</li>
+                <li>Soothing Toner</li>
+                <li>Brightening Serum</li>
+                <li>Nourish and Protect cream</li>
+                <li>Sun Protect SPF 50+</li>
+            </ul>
+            </p>
+            <button class="cart-btn">
+                Add to Cart
+            </button>
+        </div>
+
+         <!--showcasing of the products ends here-->
+    </section>  
+    </main>
+    
+
+
+    <footer>
+        <div>
+            <p><center>Skin Syntax &copy;&hearts; 2026</center></p>
+        </div>
+    </footer>
+    <script src="js_assests/myjavascript.js"></script>
+</body>
+</html>
