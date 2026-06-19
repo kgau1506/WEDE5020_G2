@@ -449,284 +449,158 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 // Enquiry form validation
-document.addEventListener("DOMContentLoaded", function() {
-    const form = document.getElementById("contact-form");
-    
-    form.addEventListener("submit", function(event) {
-        event.preventDefault();
-        
-        // Get values
-        const name = document.getElementById("name").value.trim();
-        const email = document.getElementById("email").value.trim();
-        const message = document.getElementById("message").value.trim();
-        
-        // Reset errors
-        document.querySelectorAll(".error-message").forEach(el => el.remove());
-        document.querySelectorAll(".error").forEach(el => el.classList.remove("error"));
-        
-        let isValid = true;
-        
-        // Validate Name
-        if (!name || name.length < 2) {
-            showError("name", "Name is required (min 2 characters)");
-            isValid = false;
-        }
-        
-        // Validate Email
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!email || !emailRegex.test(email)) {
-            showError("email", "Valid email is required");
-            isValid = false;
-        }
-        
-        // Validate Message
-        if (!message || message.length < 10) {
-            showError("message", "Message is required (min 10 characters)");
-            isValid = false;
-        }
-        
-        if (isValid) {
-            alert("✅ Form submitted successfully!");
-            form.reset();
-        }
-    });
-    
-    function showError(fieldId, message) {
-        const field = document.getElementById(fieldId);
-        field.classList.add("error");
-        field.style.borderColor = "#f44336";
-        
-        const error = document.createElement("div");
-        error.className = "error-message";
-        error.textContent = `❌ ${message}`;
-        error.style.color = "#f44336";
-        error.style.fontSize = "12px";
-        error.style.marginTop = "5px";
-        field.parentNode.appendChild(error);
-    }
-}); 
 
-// ===== ENQUIRY FORM VALIDATION =====
-document.addEventListener("DOMContentLoaded", function() {
-    
-    // Get form
-    const form = document.getElementById("");
-    
-    // Get all inputs
-    const fullName = document.getElementById("fullName");
-    const email = document.getElementById("email");
-    const phone = document.getElementById("phone");
-    const subject = document.getElementById("subject");
-    const message = document.getElementById("message");
-    
-    // Get error displays
-    const nameError = document.getElementById("nameError");
-    const emailError = document.getElementById("emailError");
-    const phoneError = document.getElementById("phoneError");
-    const subjectError = document.getElementById("subjectError");
-    const messageError = document.getElementById("messageError");
-    
-    // ===== VALIDATION FUNCTIONS =====
-    
-    function validateName() {
-        const value = fullName.value.trim();
-        if (value === "") {
-            nameError.textContent = "Please enter your full name";
-            nameError.style.display = "block";
-            fullName.classList.add("error");
-            fullName.classList.remove("success");
-            return false;
-        } else {
-            nameError.style.display = "none";
-            fullName.classList.remove("error");
-            fullName.classList.add("success");
-            return true;
-        }
-    }
-    
-    function validateEmail() {
-        const value = email.value.trim();
-        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        
-        if (value === "") {
-            emailError.textContent = "Please enter your email address";
-            emailError.style.display = "block";
-            email.classList.add("error");
-            email.classList.remove("success");
-            return false;
-        } else if (!emailPattern.test(value)) {
-            emailError.textContent = "Please enter a valid email (e.g., name@domain.com)";
-            emailError.style.display = "block";
-            email.classList.add("error");
-            email.classList.remove("success");
-            return false;
-        } else {
-            emailError.style.display = "none";
-            email.classList.remove("error");
-            email.classList.add("success");
-            return true;
-        }
-    }
-    
-    function validatePhone() {
-        const value = phone.value.trim();
-        const phonePattern = /^[\d\s\+\-\(\)]{10,15}$/;
-        
-        if (value === "") {
-            phoneError.textContent = "Please enter your phone number";
-            phoneError.style.display = "block";
-            phone.classList.add("error");
-            phone.classList.remove("success");
-            return false;
-        } else if (!phonePattern.test(value)) {
-            phoneError.textContent = "Please enter a valid phone number (10-15 digits)";
-            phoneError.style.display = "block";
-            phone.classList.add("error");
-            phone.classList.remove("success");
-            return false;
-        } else {
-            phoneError.style.display = "none";
-            phone.classList.remove("error");
-            phone.classList.add("success");
-            return true;
-        }
-    }
-    
-    function validateSubject() {
-        const value = subject.value.trim();
-        if (value === "") {
-            subjectError.textContent = "Please enter a subject";
-            subjectError.style.display = "block";
-            subject.classList.add("error");
-            subject.classList.remove("success");
-            return false;
-        } else {
-            subjectError.style.display = "none";
-            subject.classList.remove("error");
-            subject.classList.add("success");
-            return true;
-        }
-    }
-    
-    function validateMessage() {
-        const value = message.value.trim();
-        if (value === "") {
-            messageError.textContent = "Please enter your message";
-            messageError.style.display = "block";
-            message.classList.add("error");
-            message.classList.remove("success");
-            return false;
-        } else {
-            messageError.style.display = "none";
-            message.classList.remove("error");
-            message.classList.add("success");
-            return true;
-        }
-    }
-    
-    // ===== REAL-TIME VALIDATION (on input) =====
-    fullName.addEventListener("input", validateName);
-    email.addEventListener("input", validateEmail);
-    phone.addEventListener("input", validatePhone);
-    subject.addEventListener("input", validateSubject);
-    message.addEventListener("input", validateMessage);
-    
-    // ===== REAL-TIME VALIDATION (on blur - when leaving field) =====
-    fullName.addEventListener("blur", validateName);
-    email.addEventListener("blur", validateEmail);
-    phone.addEventListener("blur", validatePhone);
-    subject.addEventListener("blur", validateSubject);
-    message.addEventListener("blur", validateMessage);
-    
-    // ===== FORM SUBMISSION =====
-    form.addEventListener("submit", function(event) {
-        event.preventDefault();
-        
-        // Remove old messages
-        document.querySelectorAll(".form-message").forEach(function(msg) {
-            msg.remove();
+    // ===== HAMBURGER MENU =====
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (hamburger) {
+        hamburger.addEventListener('click', function() {
+            navLinks.classList.toggle('open');
         });
-        
-        // Validate all fields
-        const isNameValid = validateName();
-        const isEmailValid = validateEmail();
-        const isPhoneValid = validatePhone();
-        const isSubjectValid = validateSubject();
-        const isMessageValid = validateMessage();
-        
-        // Check if all valid
-        if (isNameValid && isEmailValid && isPhoneValid && isSubjectValid && isMessageValid) {
-            // SUCCESS - Form is complete
-            showSuccessMessage();
-            
-            // Reset form
-            form.reset();
-            
-            // Remove success classes
-            document.querySelectorAll(".success").forEach(function(input) {
-                input.classList.remove("success");
-            });
-            
-            console.log("Form submitted successfully!");
-        } else {
-            // ERROR - Form is incomplete
-            showErrorMessage("Please fill in all required fields correctly");
-            
-            // Scroll to first error
-            const firstError = document.querySelector(".error");
-            if (firstError) {
-                firstError.focus();
-                firstError.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+
+    // Close menu when a link is clicked
+    document.querySelectorAll('.nav-links li a').forEach(function(link) {
+        link.addEventListener('click', function() {
+            if (navLinks.classList.contains('open')) {
+                navLinks.classList.remove('open');
             }
-        }
+        });
     });
-    
-    // ===== SHOW SUCCESS MESSAGE =====
-    function showSuccessMessage() {
-        const messageDiv = document.createElement("div");
-        messageDiv.className = "form-message success-message";
-        messageDiv.innerHTML = `
-            ✅ <span><strong>Success!</strong> Your enquiry has been submitted successfully! We'll get back to you soon.</span>
-        `;
-        
-        // Insert at top of form
-        form.insertBefore(messageDiv, form.firstChild);
-        
-        // Auto remove after 5 seconds
-        setTimeout(function() {
-            if (messageDiv) {
-                messageDiv.style.opacity = "0";
-                messageDiv.style.transition = "opacity 0.3s";
-                setTimeout(function() {
-                    messageDiv.remove();
-                }, 300);
-            }
-        }, 5000);
+
+    // ===== FORM VALIDATION =====
+    const form = document.getElementById('contactForm');
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const phoneInput = document.getElementById('phone');
+    const subjectSelect = document.getElementById('subject');
+    const messageInput = document.getElementById('message');
+    const prioritySelect = document.getElementById('priority');
+    const termsCheck = document.getElementById('terms');
+
+    const nameError = document.getElementById('nameError');
+    const emailError = document.getElementById('emailError');
+    const phoneError = document.getElementById('phoneError');
+    const subjectError = document.getElementById('subjectError');
+    const messageError = document.getElementById('messageError');
+    const priorityError = document.getElementById('priorityError');
+    const termsError = document.getElementById('termsError');
+    const successMsg = document.getElementById('successMessage');
+
+    // lightbox
+    const overlay = document.getElementById('lightboxOverlay');
+    const closeBtn = document.getElementById('lightboxCloseBtn');
+    const lightboxDetails = document.getElementById('lightboxDetails');
+
+    // ── validation functions ──
+    function validateName() {
+        const val = nameInput.value.trim();
+        if (val === '') {
+            nameError.textContent = 'Full name is required.';
+            return false;
+        } else if (val.length < 2) {
+            nameError.textContent = 'Name must be at least 2 characters.';
+            return false;
+        } else {
+            nameError.textContent = '';
+            return true;
+        }
     }
-    
-    // ===== SHOW ERROR MESSAGE =====
-    function showErrorMessage(message) {
-        const messageDiv = document.createElement("div");
-        messageDiv.className = "form-message error-message-box";
-        messageDiv.innerHTML = `
-            ❌ <span><strong>Error!</strong> ${message}</span>
-        `;
-        
-        // Insert at top of form
-        form.insertBefore(messageDiv, form.firstChild);
-        
-        // Auto remove after 4 seconds
-        setTimeout(function() {
-            if (messageDiv) {
-                messageDiv.style.opacity = "0";
-                messageDiv.style.transition = "opacity 0.3s";
-                setTimeout(function() {
-                    messageDiv.remove();
-                }, 300);
-            }
-        }, 4000);
+
+    function validateEmail() {
+        const val = emailInput.value.trim();
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (val === '') {
+            emailError.textContent = 'Email address is required.';
+            return false;
+        } else if (!emailPattern.test(val)) {
+            emailError.textContent = 'Please enter a valid email address.';
+            return false;
+        } else {
+            emailError.textContent = '';
+            return true;
+        }
     }
-    
-    console.log("✅ Enquiry form validation loaded!");
-});
-    
+
+    function validatePhone() {
+        const val = phoneInput.value.trim();
+        if (val === '') {
+            phoneError.textContent = '';
+            return true;
+        }
+        const phonePattern = /^[\+\d\s\-\(\)]{7,20}$/;
+        if (!phonePattern.test(val)) {
+            phoneError.textContent = 'Enter a valid phone number.';
+            return false;
+        } else {
+            phoneError.textContent = '';
+            return true;
+        }
+    }
+
+    function validateSubject() {
+        const val = subjectSelect.value;
+        if (val === '' || val === 'Select a topic') {
+            subjectError.textContent = 'Please select a subject.';
+            return false;
+        } else {
+            subjectError.textContent = '';
+            return true;
+        }
+    }
+
+    function validateMessage() {
+        const val = messageInput.value.trim();
+        if (val === '') {
+            messageError.textContent = 'Message is required.';
+            return false;
+        } else if (val.length < 10) {
+            messageError.textContent = 'Message must be at least 10 characters.';
+            return false;
+        } else {
+            messageError.textContent = '';
+            return true;
+        }
+    }
+
+    function validatePriority() {
+        priorityError.textContent = '';
+        return true;
+    }
+
+    function validateTerms() {
+        if (!termsCheck.checked) {
+            termsError.textContent = 'You must agree to the terms.';
+            return false;
+        } else {
+            termsError.textContent = '';
+            return true;
+        }
+    }
+
+    // ── real‑time feedback ──
+    nameInput.addEventListener('blur', validateName);
+    emailInput.addEventListener('blur', validateEmail);
+    phoneInput.addEventListener('blur', validatePhone);
+    subjectSelect.addEventListener('blur', validateSubject);
+    messageInput.addEventListener('blur', validateMessage);
+    termsCheck.addEventListener('change', validateTerms);
+
+    nameInput.addEventListener('input', function() {
+        if (nameError.textContent) validateName();
+    });
+    emailInput.addEventListener('input', function() {
+        if (emailError.textContent) validateEmail();
+    });
+    phoneInput.addEventListener('input', function() {
+        if (phoneError.textContent) validatePhone();
+    });
+    subjectSelect.addEventListener('change', function() {
+        if (subjectError.textContent) validateSubject();
+    });
+    messageInput.addEventListener('input', function() {
+        if (messageError.textContent) validateMessage();
+    });
+    prioritySelect.addEventListener('change', validatePriority);
+ 
