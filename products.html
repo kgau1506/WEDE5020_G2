@@ -46,7 +46,7 @@
          <!--Navigation Bar ends here-->
     </header>
     <div class="search-container">
-    <center><input type="text" id="searchBar" placeholder="Search products..."><button onclick="searchProducts()"> Search</button></center> 
+    <center><input type="text" id="searchInput" placeholder="Search products..."><button onclick="searchProducts()"> Search</button></center> 
     </div>
     <main>
       
@@ -64,15 +64,14 @@
         </div>
     </section>   
          <!--introduction ends here-->
-    <div class="product-card">
+    <div class="product-card" data-product-id ="1">
         <hr width="5000">
-        <h3> Cart Items: <span id="cartCount">0</span></h3>
          <!--Showcasing of the products starts here-->
         <h2>FACE CARE</h2>
-        <h4>Face Care Combo Set</h4>
+        <h4 class="product-name">Face Care Combo Set</h4>
         <img src="images/facecare_set.png" width="400" alt="Skin Syntax Face Care Combo Set">
-        <p>
-            PRICE:R350 
+        <p class="product-price">
+            PRICE: $350 
             <br>
             <b>Includes:</b>
             <ul>
@@ -86,12 +85,12 @@
                 Add to Cart
             </button>
         </div> 
-    <div class="product-card">
+    <div class="product-card" data-product-id ="2">
         <h2>BODY CARE</h2>
-        <h4>Body Care Bundle</h4>
+        <h4 class="product-name">Body Care Bundle</h4>
         <img src="images/bodycare_set.png" width="400" alt="Skin Syntax Body Care Set">
-        <p>
-            PRICE: R400
+        <p class="product-price">
+            PRICE: $400
             <br>
             <b>Includes:</b>
             <ul>
@@ -105,12 +104,12 @@
                 Add to Cart
             </button>
     </div>
-    <div class="product-card">
+    <div class="product-card" data-product-id ="3">
         <h2>EXFOLIATION</h2>
-        <h4>Exfoliation Kit</h4>
+        <h4 class="product-name">Exfoliation Kit</h4>
         <img src="images/exfoliation_set.png" width="400" alt="Skin Syntax Exfoliation Set">
-        <p>
-            PRICE: R320
+        <p class="product-price">
+            PRICE: $320
             <br>
             <b>Includes:</b>
             <ul>
@@ -124,12 +123,12 @@
                 Add to Cart
             </button>
     </div>
-    <div class="product-card">
+    <div class="product-card" data-product-id ="4">
         <h2>FOOT CARE</h2>
-        <h4>Foot Care Recovery Kit</h4>
+        <h4 class="product-name">Foot Care Recovery Kit</h4>
         <img src="images/footcare_set.png" width="400" alt="Skin Syntax FootCare Set">
-        <p>
-            PRICE: R300
+        <p class="product-price">
+            PRICE: $300
               <br>
             <b>Includes:</b>
             <ul>
@@ -143,11 +142,12 @@
                 Add to Cart
             </button>
         </div>
-        <div class="product-card">
+        <div class="product-card" data-product-id ="5">
             <h2>VITILIGO SKINCARE SET</h2>
+            <h4 class="product-name">Vitiligo Skincare Set</h4>
             <img src="images/vitiligo_skincareset.png" width="400" alt=" Vitiligo SkinCare Set">
-            <p>
-                PRICE: R550
+            <p class="product-price">
+                PRICE: $550
                   <br>
             <b>Includes:</b>
                 <ul>
@@ -162,11 +162,12 @@
                 Add to Cart
             </button>
         </div>
-        <div class="product-card">
+        <div class="product-card" data-product-id ="6">
             <h2>ALBINISM SKINCARE SET</h2>
+            <h4 class="product-name">Albinism Skincare Set</h4>
             <img src="images/albino-skincareset.png" width="400" alt=" Albinism Skincare Set">
-            <p>
-                PRICE: R550
+            <p class="product-price">
+                PRICE: $550
                   <br>
             <b>Includes:</b>
                 <ul>
@@ -181,7 +182,16 @@
                 Add to Cart
             </button>
         </div>
-
+        <div id="cartDisplay">
+            <h3> Cart Items: <span id="cartCount">0</span></h3>
+            <div id="cartItems">
+                 <p>🛒 Your cart is empty</p>
+                <p style="font-size: 14px; color: #999;">Start adding some products!</p>
+            </div>
+            </div>  
+             <div id="cartSummary"></div> 
+            <p><strong>Total:<span id="cartTotal"> R0.00</span></strong></p>
+        </div>
          <!--showcasing of the products ends here-->
     </section>  
     </main>

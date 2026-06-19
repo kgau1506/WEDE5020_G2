@@ -42,14 +42,22 @@
         <hr>
     <div class="contact-form">
         <h2>ENQUIRIES FORM</h2>
-
+            <p class="form-subtitle">Fill in the form below and we'll get back to you.</p>
+            <form id="contact-form">
+        <div class="form-group">
         <form action="">
             <label for="Full Name">Full Name</label>
-            <input type="text" name="fullname" placeholder="Enter your name"><br><br>
-
+            <input type="text" name="fullname" placeholder="Enter your name">
+            <span class="error-message" id="nameError"></span>
+            <br><br>
+        </div>
+        <div class="form-group">
             <label for="Email address">Email address:</label><br>
-            <input type="email" name="email" placeholder="Enter your email"><br><br>
-
+            <input type="email" name="email" placeholder="Enter your email">
+            <span class="error-message" id="emailError"></span>
+            <br><br>
+        </div>
+        <div class="form-group">
             <label for="Skin type">Skin Type</label><br>
             <select name="skintype" id="">
                 <option value="Normal">Normal</option>
@@ -61,6 +69,8 @@
                 <option value="Vitiligo">Vitiligo</option>
                 <option value="Not sure">Not sure</option>
             </select><br><br>
+        </div>
+        <div class="form-group">
 
             <label for="Subject">Subject:</label><br>
             <select name="subject" id="">
@@ -69,11 +79,14 @@
                 <option value="routine help">Routine help</option>
                 <option value="general question">General question</option>
             </select><br><br>
-
+            </div>
+            <div class="form-group">     
             <label for="message">Message</label><br>
             <textarea name="message" rows="5" cols="40" placeholder="Type your message here....."></textarea>
-
+            <span class="error-message" id="messageError"></span>
+            </div>
             <button type="submit">Send Enquiry</button>
+            <p class="form-note">* All fields are required</p>
         </form>
         <hr>
     </div>
